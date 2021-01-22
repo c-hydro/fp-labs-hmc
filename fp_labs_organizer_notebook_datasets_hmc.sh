@@ -36,12 +36,12 @@ folder_datasets_remote_list_raw=(
     "/hydro/archive/model_dset_restart/point/"
 )
 folder_datasets_local_list_raw=(
-    "$HOME/fp-labs-datasets/" 
-    "$HOME/fp-labs-datasets/data_dynamic/%YYYY%mm%dd_%HH/data_archive/"
-    "$HOME/fp-labs-datasets/data_dynamic/%YYYY%mm%dd_%HH/data_forcing/ws/"
-    "$HOME/fp-labs-datasets/data_dynamic/%YYYY%mm%dd_%HH/data_forcing/satellite_modis/"
-    "$HOME/fp-labs-datasets/data_dynamic/%YYYY%mm%dd_%HH/data_restart/"
-    "$HOME/fp-labs-datasets/data_dynamic/%YYYY%mm%dd_%HH/data_restart/"
+    "$HOME/fp_labs_datasets/" 
+    "$HOME/fp_labs_datasets/data_dynamic/%YYYY%mm%dd_%HH/data_archive/"
+    "$HOME/fp_labs_datasets/data_dynamic/%YYYY%mm%dd_%HH/data_forcing/ws/"
+    "$HOME/fp_labs_datasets/data_dynamic/%YYYY%mm%dd_%HH/data_forcing/satellite_modis/"
+    "$HOME/fp_labs_datasets/data_dynamic/%YYYY%mm%dd_%HH/data_restart/"
+    "$HOME/fp_labs_datasets/data_dynamic/%YYYY%mm%dd_%HH/data_restart/"
 )
 file_datasets_raw_list=(
     "ALL"
