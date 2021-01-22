@@ -14,9 +14,9 @@ import os
 import xarray as xr
 import pandas as pd
 
-from library.lib_jupyter_utils_system import get_dict_values, fill_tags2string
-from library.lib_jupyter_info_args import logger_name, zip_extension
-from library.lib_jupyter_utils_io import unzip_filename
+from library.jupyter_generic.lib_jupyter_utils_system import get_dict_values, fill_tags2string
+from library.jupyter_generic.lib_jupyter_info_args import logger_name, zip_extension
+from library.jupyter_generic.lib_jupyter_utils_io import unzip_filename
 
 # Logging
 log_stream = logging.getLogger(logger_name)

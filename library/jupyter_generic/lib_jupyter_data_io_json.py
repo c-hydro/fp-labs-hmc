@@ -14,7 +14,7 @@ import json
 
 import pandas as pd
 
-from library.lib_jupyter_info_args import logger_name
+from library.jupyter_generic.lib_jupyter_info_args import logger_name
 
 # Logging
 log_stream = logging.getLogger(logger_name)

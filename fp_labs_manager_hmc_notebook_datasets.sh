@@ -2,7 +2,7 @@
 
 #-----------------------------------------------------------------------------------------
 # Script information
-script_name='FP LABS - ORGANIZER NOTEBOOK DATASETS - HMC'
+script_name='FP LABS - MANAGER - HMC NOTEBOOK DATASETS'
 script_version="1.0.0"
 script_date='2021/01/12'
 

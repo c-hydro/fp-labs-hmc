@@ -14,8 +14,8 @@ import os
 import cartopy
 import numpy as np
 
-from library.lib_jupyter_utils_system import make_folder
-from library.lib_jupyter_utils_colormap import load
+from library.jupyter_generic.lib_jupyter_utils_system import make_folder
+from library.jupyter_generic.lib_jupyter_utils_colormap import load
 
 import matplotlib.pylab as plt
 import matplotlib.ticker as mticker

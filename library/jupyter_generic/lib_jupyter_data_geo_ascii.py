@@ -15,8 +15,8 @@ import os
 
 import numpy as np
 
-from library.lib_jupyter_data_io_generic import create_darray_2d
-from library.lib_jupyter_info_args import logger_name
+from library.jupyter_generic.lib_jupyter_data_io_generic import create_darray_2d
+from library.jupyter_generic.lib_jupyter_info_args import logger_name
 
 # Logging
 log_stream = logging.getLogger(logger_name)

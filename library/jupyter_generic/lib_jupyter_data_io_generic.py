@@ -15,8 +15,8 @@ import xarray as xr
 import pandas as pd
 import numpy as np
 
-from library.lib_jupyter_utils_system import get_dict_values, fill_tags2string, make_folder
-from library.lib_jupyter_info_args import logger_name
+from library.jupyter_generic.lib_jupyter_utils_system import get_dict_values, fill_tags2string, make_folder
+from library.jupyter_generic.lib_jupyter_info_args import logger_name
 
 # Logging
 log_stream = logging.getLogger(logger_name)

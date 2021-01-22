@@ -11,7 +11,7 @@ Version:       '1.0.0'
 import os
 import pandas as pd
 
-from library.lib_jupyter_utils_system import make_folder
+from library.jupyter_generic.lib_jupyter_utils_system import make_folder
 
 import matplotlib.pylab as plt
 #######################################################################################
