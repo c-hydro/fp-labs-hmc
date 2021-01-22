@@ -5,10 +5,10 @@
     "var_list_outcome": ["SM", "LST"]
   },
   "time" : {
-    "time_run": "2021-01-06 15:00",
+    "time_run": "2021-01-22 06:00",
     "time_observed_period": 5,
     "time_observed_frequency": "H",
-    "time_analysis": "2021-01-06 13:00"
+    "time_analysis": "2021-01-22 03:00"
   },
   "template": {
     "domain_name": "domain_name_string",
@@ -23,25 +23,25 @@
   "source" : {
     "static": {
       "terrain": {
-        "folder_name": "/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/data_static/gridded/",
+        "folder_name": "$HOME/fp-labs-datasets/data_static/gridded/",
         "file_name": "marche.dem.txt"
       },
       "river_network": {
-        "folder_name": "/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/data_static/gridded/",
+        "folder_name": "$HOME/fp-labs-datasets/data_static/gridded/",
         "file_name": "marche.choice.txt"
       },
       "sections": {
-        "folder_name": "/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/data_static/shapefile/",
+        "folder_name": "$HOME/fp-labs-datasets/data_static/shapefile/",
         "file_name": "fp_sections_marche.shp"
       }
     },
     "dynamic": {
       "maps_forcing_obs_ws": {
-        "folder_name": "/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/data_dynamic/{maps_forcing_obs_ws_sub_path}/data_forcing/ws/",
+        "folder_name": "$HOME/fp-labs-datasets/data_dynamic/{maps_forcing_obs_ws_sub_path}/data_forcing/ws/",
         "file_name": "ws.db.{maps_forcing_obs_ws_datetime}.nc.gz"
       },
       "maps_outcome": {
-        "folder_name": "/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/data_dynamic/{maps_outcome_sub_path}/data_archive/gridded/",
+        "folder_name": "$HOME/fp-labs-datasets/data_dynamic/{maps_outcome_sub_path}/data_archive/gridded/",
         "file_name": "hmc.output-grid.{maps_outcome_datetime}.nc.gz"
       }
     }
@@ -49,11 +49,11 @@
   "destination": {
     "plot": {
       "maps_forcing_obs_ws": {
-        "folder_name":"/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/images/",
+        "folder_name":"$HOME/fp-labs-datasets/images/",
         "file_name": "hmc.forcing_{var_name}.{plot_datetime}.png"
       },
       "maps_outcome": {
-        "folder_name":"/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/images/",
+        "folder_name":"$HOME/fp-labs-datasets/images/",
         "file_name": "hmc.outcome_{var_name}.{plot_datetime}.png"
       }
     }

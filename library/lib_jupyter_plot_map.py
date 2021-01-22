@@ -53,7 +53,7 @@ def plot_map_var(file_path, var_darray, var_time, var_limit_min=None, var_limit_
 
     if var_limit_min is not None:
         map_data[map_data < var_limit_min] = np.nan
-    if var_limit_min is not None:
+    if var_limit_max is not None:
         map_data[map_data > var_limit_max] = np.nan
 
     map_lons_tmp = np.float32(var_darray[var_name_geo_x].values)

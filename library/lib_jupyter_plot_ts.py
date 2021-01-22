@@ -32,7 +32,8 @@ def configure_ts_axes(dframe_data, time_format='%m-%d %H'):
 # -------------------------------------------------------------------------------------
 # Method to configure time-series attributes
 def configure_ts_attrs(attrs_data,
-                       tag_run_time='time_run', tag_run_name='run_name',
+                       tag_run_time='time_run', tag_restart_time='time_restart', tag_start_time='time_start',
+                       tag_run_name='run_name', tag_run_domain='run_domain',
                        tag_section_name='section_name', tag_basin_name='section_domain',
                        tag_section_thr_alarm_discharge='section_discharge_thr_alarm',
                        tag_section_thr_alert_discharge='section_discharge_thr_alert',
@@ -43,6 +44,10 @@ def configure_ts_attrs(attrs_data,
 
         if attr_key == tag_run_time:
             attrs_ts[tag_run_time] = pd.Timestamp(attr_value)
+        if attr_key == tag_restart_time:
+            attrs_ts[tag_restart_time] = pd.Timestamp(attr_value)
+        if attr_key == tag_start_time:
+            attrs_ts[tag_start_time] = pd.Timestamp(attr_value)
         elif attr_key == tag_run_name:
             attrs_ts[tag_run_name] = attr_value
         elif attr_key == tag_section_name:
@@ -55,6 +60,8 @@ def configure_ts_attrs(attrs_data,
             attrs_ts[tag_section_thr_alert_discharge] = float(attr_value)
         elif attr_key == tag_section_drainage_area:
             attrs_ts[tag_section_drainage_area] = attr_value
+        elif attr_key == tag_run_domain:
+            attrs_ts[tag_run_domain] = attr_value
 
     return attrs_ts
 # -------------------------------------------------------------------------------------
@@ -110,10 +117,10 @@ def plot_ts_forcing(file_name,
     legend = ax1.legend([p11[0]], [tag_rain_name], frameon=False, loc=2)
     ax1.add_artist(legend)
 
-    ax1.set_title('Time Series \n Section: ' + attrs_ts['section_name'] +
-                  ' == Basin: ' + attrs_ts['section_domain'] +
-                  ' == Area [Km^2]: ' + attrs_ts['section_drained_area'] + ' \n  TypeRun: ' + attrs_ts['run_name'] +
-                  ' == Time_Run: ' + str(attrs_ts['time_run']))
+    ax1.set_title('Time Series \n Domain: ' + attrs_ts['run_domain'] +
+                  ' \n  TypeRun: ' + attrs_ts['run_name'] +
+                  ' == Time_Run: ' + str(attrs_ts['time_run']) + ' == Time_Restart: ' + str(attrs_ts['time_restart']) +
+                  ' == Time_Start: ' + str(attrs_ts['time_start']))
 
     # Subplot 2 [AIR TEMPERATURE]
     ax2 = plt.subplot(5, 1, 2)
@@ -144,7 +151,7 @@ def plot_ts_forcing(file_name,
     p31 = ax3.plot(df_incrad.index, df_incrad.values[:, 0], color='#9B26B6', linestyle='-', lw=2)
     p32 = ax3.axvline(attrs_ts['time_run'], color='#000000', linestyle='--', lw=2)
 
-    legend = ax3.legend([p21[0]], [tag_incrad_name], frameon=False, loc=2)
+    legend = ax3.legend([p31[0]], [tag_incrad_name], frameon=False, loc=2)
     ax3.add_artist(legend)
 
     # Subplot 4 [RELATIVE HUMIDITY]
@@ -261,7 +268,8 @@ def plot_ts_discharge(file_name, df_discharge_sim, attrs_discharge_sim, df_disch
     ax1.set_title('Time Series \n Section: ' + attrs_ts['section_name'] +
                   ' == Basin: ' + attrs_ts['section_domain'] +
                   ' == Area [Km^2]: ' + attrs_ts['section_drained_area'] + ' \n  TypeRun: ' + attrs_ts['run_name'] +
-                  ' == Time_Run: ' + str(attrs_ts['time_run']))
+                  ' == Time_Run: ' + str(attrs_ts['time_run']) + ' == Time_Restart: ' + str(attrs_ts['time_restart']) +
+                  ' == Time_Start: ' + str(attrs_ts['time_start']))
 
     # Subplot 2 [DISCHARGE]
     ax2 = plt.subplot(3, 1, (2, 3))

@@ -78,7 +78,7 @@ def define_file_template(time_run, time_analysis=None,
             elif template_key == 'domain_name':
                 template_filled[template_key] = domain_name
             elif template_key == 'time_series_datetime':
-                template_filled[template_key] = pd.Timestamp('2021-01-04 00:00') #time_run
+                template_filled[template_key] = time_run
             elif template_key == 'time_series_sub_path':
                 template_filled[template_key] = time_run
             elif template_key == 'maps_forcing_obs_ws_datetime':
@@ -101,16 +101,32 @@ def define_file_template(time_run, time_analysis=None,
         template_filled = None
 
     return template_filled
+# ----------------------------------------------
+# ---------------------------------------
+
+
+# -------------------------------------------------------------------------------------
+# Method to get user path
+def get_user_root():
+    user_path = os.path.expanduser("~")
+    return user_path
 # -------------------------------------------------------------------------------------
 
 
 # -------------------------------------------------------------------------------------
 # Method to define file path
 def define_file_path(settings_data, tag_folder_name='folder_name', tag_file_name='file_name'):
+
+    user_path = get_user_root()
+
     file_path_collections = {}
     for data_key, data_fields in settings_data.items():
 
         folder_name = get_dict_values(data_fields, tag_folder_name, [])
+
+        if "$HOME" in folder_name:
+            folder_name = folder_name.replace('$HOME', user_path)
+
         file_name = get_dict_values(data_fields, tag_file_name, [])
         file_path = os.path.join(folder_name, file_name)
 

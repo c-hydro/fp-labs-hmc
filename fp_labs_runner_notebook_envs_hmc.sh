@@ -6,8 +6,8 @@ script_name='FP LABS - RUNNER JUPITER-LAB ENVIRONMENT - HMC'
 script_version="1.0.0"
 script_date='2021/01/12'
 
-script_folder='$HOME/fp-labs-hmc/'
-fp_virtualenv_folder='$HOME/fp_virtualenv_python3_hmc/'
+script_folder=$HOME'/fp-labs-hmc/'
+fp_virtualenv_folder=$HOME'/fp_virtualenv_python3_hmc/'
 fp_virtualenv_libs='fp_virtualenv_python3_hmc_libraries'
 
 # Jupyter lab interactive graph:
