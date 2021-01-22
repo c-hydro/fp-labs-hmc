@@ -1,0 +1,59 @@
+{
+  "info": {
+    "domain_name": "marche",
+    "section_name": "tronto",
+    "basin_name": "tronto"
+  },
+  "time_run" : "2021-01-06 15:00",
+  "template": {
+    "domain_name": "string",
+    "section_name": "string",
+    "basin_name": "string",
+    "time_series_datetime": "%Y%m%d%H%M",
+    "time_series_sub_path": "%Y%m%d_%H",
+    "plot_datetime": "%Y%m%d%H%M",
+    "plot_sub_path": "%Y%m%d_%H"
+  },
+  "source" : {
+    "static": {
+      "terrain": {
+        "folder_name": "/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/data_static/gridded/",
+        "file_name": "marche.dem.txt"
+      },
+      "river_network": {
+        "folder_name": "/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/data_static/gridded/",
+        "file_name": "marche.choice.txt"
+      },
+      "sections": {
+        "folder_name": "/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/data_static/shapefile/",
+        "file_name": "fp_sections_marche.shp"
+      }
+    },
+    "dynamic": {
+      "time_series_hydrograph": {
+        "folder_name": "/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/data_dynamic/{time_series_sub_path}/data_archive/collections/",
+        "file_name": "hydrograph_{section_name}_{basin_name}_{time_series_datetime}.json"
+      },
+      "time_series_collections": {
+        "folder_name": "/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/data_dynamic/{time_series_sub_path}/data_archive/collections/",
+        "file_name": "hmc.collections.{time_series_datetime}.nc"
+      }
+    }
+  },
+  "destination": {
+    "plot": {
+      "section_locator": {
+        "folder_name":"/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/images/",
+        "file_name": "hmc.section_locator_{section_name}_{basin_name}.png"
+      },
+      "time_series_discharge": {
+        "folder_name":"/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/images/",
+        "file_name": "hmc.ts_discharge_{section_name}_{basin_name}.{plot_datetime}.png"
+      },
+      "time_series_forcing": {
+        "folder_name":"/home/fabio/Desktop/PyCharm_Workspace/fp-labs-ws/images/",
+        "file_name": "hmc.ts_forcing.{plot_datetime}.png"
+      }
+    }
+  }
+}
