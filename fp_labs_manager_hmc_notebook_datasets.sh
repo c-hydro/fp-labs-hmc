@@ -23,6 +23,7 @@ folder_datasets_tag_list=(
     "STATIC DATA"
     "DYNAMIC DATA OUTCOME == WEATHER STATION REALTIME [ALL]"
     "DYNAMIC DATA SOURCE OBS == GROUND NETWORK == WEATHER STATION"
+    "DYNAMIC DATA SOURCE OBS == GROUND NETWORK == RIVER STATION"
     "DYNAMIC DATA SOURCE OBS == SATELLITE == MODIS"
     "DYNAMIC DATA STATE/RESTART == WEATHER STATION REALTIME [GRIDDED]"
     "DYNAMIC DATA STATE/RESTART == WEATHER STATION REALTIME [POINT]"
@@ -31,6 +32,7 @@ folder_datasets_remote_list_raw=(
     "/hydro/data/data_static" 
     "/hydro/archive/weather_stations_realtime/%YYYY/%mm/%dd/%HH/"
     "/hydro/data/data_dynamic/outcome/obs/weather_stations/%YYYY/%mm/%dd/"
+    "/hydro/data/data_dynamic/outcome/obs/river_stations/%YYYY/%mm/%dd/"
     "/hydro/data/data_dynamic/outcome/obs/satellite/modis/%YYYY/%mm/%dd/"
     "/hydro/archive/model_dset_restart/gridded/"
     "/hydro/archive/model_dset_restart/point/"
@@ -39,6 +41,7 @@ folder_datasets_local_list_raw=(
     "$HOME/fp_labs_datasets/" 
     "$HOME/fp_labs_datasets/data_dynamic/%YYYY%mm%dd_%HH/data_archive/"
     "$HOME/fp_labs_datasets/data_dynamic/%YYYY%mm%dd_%HH/data_forcing/ws/"
+    "$HOME/fp_labs_datasets/data_dynamic/%YYYY%mm%dd_%HH/data_forcing/rs/"
     "$HOME/fp_labs_datasets/data_dynamic/%YYYY%mm%dd_%HH/data_forcing/satellite_modis/"
     "$HOME/fp_labs_datasets/data_dynamic/%YYYY%mm%dd_%HH/data_restart/"
     "$HOME/fp_labs_datasets/data_dynamic/%YYYY%mm%dd_%HH/data_restart/"
@@ -47,12 +50,14 @@ file_datasets_raw_list=(
     "ALL"
     "ALL"
     "ws.db.%YYYY%mm%dd%HH00.nc.gz"
+    "rs.db.%YYYY%mm%dd%HH00.txt"
     "modis.snow.%YYYY%mm%dd%HH00.nc.gz"
     "hmc.state-grid.%YYYY%mm%dd%HH00.nc.gz"
     "hmc.state-point.%YYYY%mm%dd%HH00.txt"
 )
 
 file_extension_excluded_list=(
+    "*.workspace*"
     "*.workspace*"
     "*.workspace*"
     "*.workspace*"
@@ -67,14 +72,16 @@ file_sync_activated_list=(
     true
     true
     true
+    true
 )
 time_period_datasets_list=(
     0
     0
-    48
-    48
-    49
-    49
+    72
+    72
+    72
+    73
+    73
 )
 #-----------------------------------------------------------------------------------------
 
