@@ -16,16 +16,17 @@ Version(s):
 
 # -------------------------------------------------------------------------------------
 # Complete library
-from library.lib_jupyter_data_io_json import read_file_settings
-from library.lib_jupyter_data_io_generic import define_file_path, define_file_template, fill_file_template, \
-    create_darray_maps, define_file_var, create_time_range, validate_time_step, organize_file_template
+from library.jupyter_generic.lib_jupyter_data_io_json import read_file_settings
+from library.jupyter_generic.lib_jupyter_data_io_generic import define_file_path, define_file_template, fill_file_template, \
+    create_darray_maps, define_file_var, create_time_range, validate_time_step, organize_file_template, \
+    get_path_root, get_path_folders, get_folders_time
 
-from library.lib_jupyter_data_geo_ascii import read_data_grid
-from library.lib_jupyter_data_geo_shapefile import read_data_section, find_data_section
+from library.jupyter_generic.lib_jupyter_data_geo_ascii import read_data_grid
+from library.jupyter_generic.lib_jupyter_data_geo_shapefile import read_data_section
 
-from library.lib_jupyter_data_io_netcdf import read_file_maps
+from library.jupyter_generic.lib_jupyter_data_io_netcdf import read_file_maps
 
-from library.lib_jupyter_plot_map import plot_map_terrain, plot_map_var
+from library.jupyter_generic.lib_jupyter_plot_map import plot_map_terrain, plot_map_var
 # -------------------------------------------------------------------------------------
 
 
@@ -41,6 +42,12 @@ def main(file_name_settings="fp_labs_analyzer_hmc_maps.json"):
     file_path_dset_dynamic = define_file_path(settings_info['source']['dynamic'])
     file_path_dset_plot = define_file_path(settings_info['destination']['plot'])
 
+    # Define dynamic path root
+    file_path_dynamic_root = get_path_root(list(file_path_dset_dynamic.values())[0])
+    # Define list of available folders and time(s)
+    list_folder_dynamic_root = get_path_folders(file_path_dynamic_root)
+    list_time_dynamic_root = get_folders_time(list_folder_dynamic_root)
+
     # Read terrain datasets
     darray_map_terrain = read_data_grid(file_path_dset_static['terrain'], var_limit_min=0, var_limit_max=None)
     # Read river network datasets
@@ -51,11 +58,12 @@ def main(file_name_settings="fp_labs_analyzer_hmc_maps.json"):
     # Get domain, time and variable(s) information
     info_domain = settings_info['info']['domain_name']
     info_time_run = settings_info['time']['time_run']
-    info_time_analysis = settings_info['time']['time_analysis']
-    info_time_range = create_time_range(
+    info_time_range_stamp, info_time_range_string = create_time_range(
         info_time_run,
         time_obs_period=settings_info['time']['time_observed_period'],
         time_obs_freq=settings_info['time']['time_observed_frequency'])
+
+    info_time_analysis = settings_info['time']['time_analysis']
     info_var_list_forcing_obs_ws = settings_info['info']['var_list_forcing_obs_ws']
     info_var_list_outcome = settings_info['info']['var_list_outcome']
 
@@ -65,7 +73,7 @@ def main(file_name_settings="fp_labs_analyzer_hmc_maps.json"):
     # Fill dynamic file path(s)
     file_path_dset_dynamic_collections = {}
     file_path_dset_plot_collections = {}
-    for info_time_step in info_time_range:
+    for info_time_step in info_time_range_stamp:
 
         string_time_step = info_time_step.strftime('%Y-%m-%d %H:00')
 

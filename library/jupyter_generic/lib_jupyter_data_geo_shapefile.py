@@ -20,24 +20,29 @@ import geopandas as gpd
 # -------------------------------------------------------------------------------------
 # Method to find data section
 def find_data_section(section_df, section_name=None, basin_name=None,
-                      tag_column_section='section_name', tag_column_basin='section_domain'):
+                      tag_column_section_in='section_name', tag_column_basin_in='section_domain',
+                      tag_column_section_out='section_name', tag_column_basin_out='basin_name'):
 
     section_name_ref = section_name.lower()
     basin_name_ref = basin_name.lower()
 
-    section_name_list = section_df[tag_column_section].values
-    basin_name_list = section_df[tag_column_basin].values
+    section_name_list = section_df[tag_column_section_in].values
+    basin_name_list = section_df[tag_column_basin_in].values
 
-    section_dict_tmp = {tag_column_section: section_name_list, tag_column_basin: basin_name_list}
+    section_dict_tmp = {tag_column_section_in: section_name_list, tag_column_basin_in: basin_name_list}
     section_df_tmp = pd.DataFrame(data=section_dict_tmp)
     section_df_tmp = section_df_tmp.astype(str).apply(lambda x: x.str.lower())
 
-    point_idx = section_df_tmp[(section_df_tmp[tag_column_section] == section_name_ref) &
-                                 (section_df_tmp[tag_column_basin] == basin_name_ref)].index
+    point_idx = section_df_tmp[(section_df_tmp[tag_column_section_in] == section_name_ref) &
+                                 (section_df_tmp[tag_column_basin_in] == basin_name_ref)].index
 
     if point_idx.shape[0] == 1:
         point_idx = point_idx[0]
         point_dict = section_df.iloc[point_idx, :].to_dict()
+
+        point_dict[tag_column_section_out] = point_dict.pop(tag_column_section_in)
+        point_dict[tag_column_basin_out] = point_dict.pop(tag_column_basin_in)
+
     elif point_idx.shape[0] == 0:
         raise IOError('Section selection failed; section not found')
     else:

@@ -199,8 +199,8 @@ def plot_map_terrain(file_path, darray_data_terrain, darray_data_river_network, 
     cb1.set_label(label_terrain, size=12, color='gray', weight='normal')
     cb1.ax.tick_params(labelsize=10, labelcolor='gray')
 
-    ax.plot(dict_section[tag_section_geo_x], dict_section[tag_section_geo_y], 'o',
-            markersize=20, markerfacecolor='white', markeredgecolor='gray', markeredgewidth=2,
+    ax.plot(dict_section[tag_section_geo_x], dict_section[tag_section_geo_y], 'x',
+            markersize=15, markerfacecolor='white', markeredgecolor='gray', markeredgewidth=2,
             transform=data_crs)
     ax.text(dict_section[tag_section_geo_x], dict_section[tag_section_geo_y],
             label_section, transform=data_crs, bbox=dict(boxstyle='square', facecolor='white', alpha=0.5))

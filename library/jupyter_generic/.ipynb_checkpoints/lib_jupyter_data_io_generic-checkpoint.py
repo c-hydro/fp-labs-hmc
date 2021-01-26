@@ -10,7 +10,6 @@ Version:       '1.0.0'
 # Library
 import logging
 import os
-import re
 
 import xarray as xr
 import pandas as pd
@@ -102,44 +101,9 @@ def define_file_template(time_run, time_analysis=None,
         template_filled = None
 
     return template_filled
-# -------------------------------------------------------------------------------------
+# ----------------------------------------------
+# ---------------------------------------
 
-
-# -------------------------------------------------------------------------------------
-# Method to parser time from path list
-def get_folders_time(folder_list, time_format_in='%Y%m%d_%H', time_format_out='%Y-%m-%d %H:00'):
-    time_list = []
-    for folder_step in folder_list:
-        time_stamp_step = pd.to_datetime(folder_step, format=time_format_in)
-        time_str_step = time_stamp_step.strftime(format=time_format_out)
-        time_list.append(time_str_step)
-    return time_list
-# -------------------------------------------------------------------------------------
-
-
-# -------------------------------------------------------------------------------------
-# Method to list all subfolders in a root path
-def get_path_folders(root_path):
-    folder_list = os.listdir(root_path)
-    return folder_list
-# -------------------------------------------------------------------------------------
-
-
-# -------------------------------------------------------------------------------------
-# Method to search root of a generic path
-def get_path_root(generic_path):
-
-    string_patterns = re.findall(r"\{([A-Za-z0-9_]+)\}", generic_path)
-
-    dict_patterns = {}
-    for string_pattern in string_patterns:
-        dict_patterns[string_pattern] = ':::'
-
-    tmp_path = generic_path.format(**dict_patterns)
-    root_path = tmp_path.split(sep=':::')[0]
-
-    return root_path
-# -------------------------------------------------------------------------------------
 
 # -------------------------------------------------------------------------------------
 # Method to get user path
@@ -206,8 +170,7 @@ def validate_time_step(time_step, time_range):
 
 # -------------------------------------------------------------------------------------
 # Method to create data time range
-def create_time_range(time_run, time_obs_period=1, time_obs_freq='H', time_for_period=0, time_for_freq='H',
-                      time_format='%Y-%m-%d %H:00', time_reverse=True):
+def create_time_range(time_run, time_obs_period=1, time_obs_freq='H', time_for_period=0, time_for_freq='H'):
 
     time_run = pd.Timestamp(time_run)
     time_obs_end = time_run
@@ -216,17 +179,9 @@ def create_time_range(time_run, time_obs_period=1, time_obs_freq='H', time_for_p
     time_obs_range = pd.date_range(end=time_obs_end, periods=time_obs_period, freq=time_obs_freq)
     time_for_range = pd.date_range(start=time_for_start, periods=time_for_period, freq=time_for_freq)
 
-    time_range_stamp = time_obs_range.union(time_for_range)
+    time_range = time_obs_range.union(time_for_range)
 
-    if time_reverse:
-        time_range_stamp = time_range_stamp[::-1]
-
-    time_range_str = []
-    for time_step in time_range_stamp:
-        time_str = time_step.strftime(format=time_format)
-        time_range_str.append(time_str)
-
-    return time_range_stamp, time_range_str
+    return time_range
 
 # -------------------------------------------------------------------------------------
 

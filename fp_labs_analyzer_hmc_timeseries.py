@@ -16,16 +16,17 @@ Version(s):
 
 # -------------------------------------------------------------------------------------
 # Complete library
-from library.lib_jupyter_data_io_json import read_file_settings, read_file_ts_hydrograph
-from library.lib_jupyter_data_io_generic import define_file_path, define_file_template, fill_file_template, create_dframe_ts
+from library.jupyter_generic.lib_jupyter_data_io_json import read_file_settings, read_file_ts_hydrograph
+from library.jupyter_generic.lib_jupyter_data_io_generic import define_file_path, define_file_template, \
+    fill_file_template, create_dframe_ts, get_path_root, get_path_folders, get_folders_time
 
-from library.lib_jupyter_data_geo_ascii import read_data_grid
-from library.lib_jupyter_data_geo_shapefile import read_data_section, find_data_section
+from library.jupyter_generic.lib_jupyter_data_geo_ascii import read_data_grid
+from library.jupyter_generic.lib_jupyter_data_geo_shapefile import read_data_section, find_data_section
 
-from library.lib_jupyter_data_io_netcdf import read_file_ts_collections
+from library.jupyter_generic.lib_jupyter_data_io_netcdf import read_file_ts_collections
 
-from library.lib_jupyter_plot_ts import plot_ts_discharge, plot_ts_forcing
-from library.lib_jupyter_plot_map import plot_map_terrain
+from library.jupyter_generic.lib_jupyter_plot_ts import plot_ts_discharge, plot_ts_forcing
+from library.jupyter_generic.lib_jupyter_plot_map import plot_map_terrain
 # -------------------------------------------------------------------------------------
 
 
@@ -40,6 +41,12 @@ def main(file_name_settings="fp_labs_analyzer_hmc_timeseries.json"):
     file_path_dset_static = define_file_path(settings_info['source']['static'])
     file_path_dset_dynamic = define_file_path(settings_info['source']['dynamic'])
     file_path_dset_plot = define_file_path(settings_info['destination']['plot'])
+
+    # Define dynamic path root
+    file_path_dynamic_root = get_path_root(list(file_path_dset_dynamic.values())[0])
+    # Define list of available folders and time(s)
+    list_folder_dynamic_root = get_path_folders(file_path_dynamic_root)
+    list_time_dynamic_root = get_folders_time(list_folder_dynamic_root)
 
     # Read terrain datasets
     darray_terrain = read_data_grid(file_path_dset_static['terrain'], var_limit_min=0, var_limit_max=None)
@@ -56,7 +63,7 @@ def main(file_name_settings="fp_labs_analyzer_hmc_timeseries.json"):
 
     # Fill dynamic file path(s)
     file_template_filled = define_file_template(
-        info_time_run, section_name=info_section['section_name'], basin_name=info_section['section_domain'],
+        info_time_run, section_name=info_section['section_name'], basin_name=info_section['basin_name'],
         domain_name=info_domain, template_default=settings_info['template'])
     file_path_dset_dynamic = fill_file_template(file_path_dset_dynamic,
                                                 template_filled=file_template_filled,
@@ -82,7 +89,8 @@ def main(file_name_settings="fp_labs_analyzer_hmc_timeseries.json"):
 
     # Plot map terrain with section
     file_name_section_locator = file_path_dset_plot['section_locator']
-    plot_map_terrain(file_name_section_locator, darray_terrain, info_section)
+    plot_map_terrain(file_name_section_locator, darray_terrain, darray_river_network, info_section,
+                     mask_terrain=False)
 
     # Plot ts discharge
     file_name_ts_discharge = file_path_dset_plot['time_series_discharge']
