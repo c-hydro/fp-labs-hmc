@@ -41,24 +41,30 @@ def organize_file_template(file_collections, file_dataset_tag='maps_forcing_obs_
 
 # -------------------------------------------------------------------------------------
 # Method to fill file path
-def fill_file_template(file_path_collections, template_default=None, template_filled=None):
+def fill_file_template(file_obj, template_default=None, template_filled=None):
 
     if (template_filled is not None) and (template_default is not None):
-        file_path_collections_filled = {}
-        for file_path_key, file_path_raw in file_path_collections.items():
-            file_path_def = fill_tags2string(file_path_raw, template_default, template_filled)
-            file_path_collections_filled[file_path_key] = file_path_def
+        if isinstance(file_obj, dict):
+            file_filled_obj = {}
+            for file_path_key, file_path_raw in file_obj.items():
+                file_path_def = fill_tags2string(file_path_raw, template_default, template_filled)
+                file_path_collections_filled[file_path_key] = file_path_def
+        elif isinstance(file_obj, str):
+            file_filled_obj = fill_tags2string(file_obj, template_default, template_filled)
+        else:
+            raise NotImplementedError('Object in filling string is not allowed')
     else:
-        file_path_collections_filled = file_path_collections
+        file_filled_obj = file_path_collections
 
-    return file_path_collections_filled
+    return file_filled_obj
 # -------------------------------------------------------------------------------------
 
 
 # -------------------------------------------------------------------------------------
 # Method to define file template
 def define_file_template(time_run, time_analysis=None,
-                         section_name=None, basin_name=None, domain_name=None, template_default=None):
+                         section_name=None, basin_name=None, domain_name=None, run_name=None,
+                         template_default=None):
 
     if isinstance(time_run, str):
         time_run = pd.Timestamp(time_run)
@@ -78,6 +84,10 @@ def define_file_template(time_run, time_analysis=None,
                 template_filled[template_key] = basin_name
             elif template_key == 'domain_name':
                 template_filled[template_key] = domain_name
+            elif template_key == 'run_datetime':
+                template_filled[template_key] = time_run
+            elif template_key == 'run_sub_path':
+                template_filled[template_key] = time_run
             elif template_key == 'time_series_datetime':
                 template_filled[template_key] = time_run
             elif template_key == 'time_series_sub_path':
@@ -96,6 +106,12 @@ def define_file_template(time_run, time_analysis=None,
                 template_filled[template_key] = time_analysis
             elif template_key == 'var_name':
                 template_filled[template_key] = '{var_name}'
+            elif template_key == 'group_name':
+                template_filled[template_key] = '{group_name}'
+            elif template_key == 'time_name':
+                template_filled[template_key] = '{time_name}'
+            elif template_key == 'run_name':
+                template_filled[template_key] = run_name
             else:
                 raise NameError('Template key ' + template_key + ' is not assigned by the procedure')
     else:
@@ -108,6 +124,10 @@ def define_file_template(time_run, time_analysis=None,
 # -------------------------------------------------------------------------------------
 # Method to parser time from path list
 def get_folders_time(folder_list, time_format_in='%Y%m%d_%H', time_format_out='%Y-%m-%d %H:00'):
+
+    if isinstance(folder_list, str):
+        folder_list = [folder_list]
+
     time_list = []
     for folder_step in folder_list:
         time_stamp_step = pd.to_datetime(folder_step, format=time_format_in)
@@ -141,6 +161,7 @@ def get_path_root(generic_path):
     return root_path
 # -------------------------------------------------------------------------------------
 
+
 # -------------------------------------------------------------------------------------
 # Method to get user path
 def get_user_root():
@@ -162,6 +183,9 @@ def define_file_path(settings_data, tag_folder_name='folder_name', tag_file_name
 
         if "$HOME" in folder_name:
             folder_name = folder_name.replace('$HOME', user_path)
+        if "$ENV_HOME" in folder_name:
+            folder_name = folder_name.replace('$ENV_HOME', user_path)
+
 
         file_name = get_dict_values(data_fields, tag_file_name, [])
         file_path = os.path.join(folder_name, file_name)

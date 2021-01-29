@@ -160,7 +160,7 @@ def plot_ts_forcing(file_name,
     ax4.set_xticklabels([])
 
     ax4.set_xlim(tick_time_period[0], tick_time_period[-1])
-    ax4.set_ylabel(label_rh, color='#000000')
+    ax4.set_ylabel(label_rh, color='#000000', fontsize=6)
     ax4.set_ylim(value_min_rh, value_max_rh)
     ax4.grid(b=True)
 

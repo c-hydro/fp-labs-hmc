@@ -21,7 +21,7 @@
       "hmc_file_list"        : {
         "ALL"		      : {
           "var_file_name"   : "hmc.collections.{dset_datetime_summary}.nc",
-          "var_file_folder" : "$ENV_HOME/fp_labs_datasets/outcome/$ENV_TIME/collections/",
+          "var_file_folder" : "$ENV_HOME/fp_labs_datasets/data_run/$ENV_TIME/data_archive/collections/",
           "var_file_dset"	: "ALL",
           "var_file_format"	: "netcdf",
           "var_file_limits"	: null,
@@ -38,7 +38,7 @@
       "hmc_file_list"        : {
         "Discharge"		  : {
           "var_file_name"   : "hydrograph_{string_var_name_summary_section}_{string_var_name_summary_basin}_{dset_datetime_summary}.json",
-          "var_file_folder" : "$ENV_HOME/fp_labs_datasets/outcome/$ENV_TIME/collections/",
+          "var_file_folder" : "$ENV_HOME/fp_labs_datasets/data_run/$ENV_TIME/data_archive/collections/",
           "var_file_dset"	: "Discharge",
           "var_file_format"	: "json_time_series",
           "var_file_limits"	: [0, null],
@@ -402,7 +402,7 @@
           "var_list"        : {
             "ALL"			  : {
               "var_file_name"   : "hmc.output-grid.{dset_datetime_hmc}.nc.gz",
-              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/outcome/$ENV_TIME/gridded/",
+              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/data_run/$ENV_TIME/data_archive/gridded/",
               "var_file_dset"	: "ALL",
               "var_file_format"	: "netcdf",
               "var_file_limits"	: [null, null],
@@ -427,7 +427,7 @@
           "var_list"        : {
             "Discharge"	      : {
               "var_file_name"   : "hmc.{dset_var_name_outcome_point}.{dset_datetime_outcome}.txt",
-              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/outcome/$ENV_TIME/point/discharge/",
+              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/data_run/$ENV_TIME/data_archive/point/discharge/",
               "var_file_dset"	: "discharge",
               "var_file_format"	: "ascii_point",
               "var_file_limits"	: [0, null],
@@ -435,7 +435,7 @@
             },
             "DamV"			  : {
               "var_file_name"   : "hmc.{dset_var_name_outcome_point}.{dset_datetime_outcome}.txt",
-              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/outcome/$ENV_TIME/point/dam_volume/",
+              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/data_run/$ENV_TIME/data_archive/point/dam_volume/",
               "var_file_dset"	: "vdam",
               "var_file_format"	: "ascii_point",
               "var_file_limits"	: [0, null],
@@ -443,7 +443,7 @@
             },
             "DamL"	          : {
               "var_file_name"   : "hmc.{dset_var_name_outcome_point}.{dset_datetime_outcome}.txt",
-              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/outcome/$ENV_TIME/point/dam_level/",
+              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/data_run/$ENV_TIME/data_archive/point/dam_level/",
               "var_file_dset"	: "ldam",
               "var_file_format"	: "ascii_point",
               "var_file_limits"	: [0, null],
@@ -451,7 +451,7 @@
             },
             "VarAnalysis"	  : {
               "var_file_name"   : "hmc.{dset_var_name_outcome_point}.{dset_datetime_outcome}.txt",
-              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/outcome/$ENV_TIME/point/analysis/",
+              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/data_run/$ENV_TIME/data_archive/point/analysis/",
               "var_file_dset"	: "var-analysis",
               "var_file_format"	: "ascii_point",
               "var_file_limits"	: [null, null],
@@ -476,7 +476,7 @@
           "var_list"        : {
             "Discharge"		  : {
               "var_file_name"   : "hmc.hydrograph.txt",
-              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/outcome/$ENV_TIME/timeseries/",
+              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/data_run/$ENV_TIME/data_archive/timeseries/",
               "var_file_dset"	: "hydrograph",
               "var_file_format"	: "ascii_time_series",
               "var_file_limits"	: [0, null],
@@ -484,7 +484,7 @@
             },
             "DamV"		      : {
               "var_file_name"   : "hmc.vdam.txt",
-              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/outcome/$ENV_TIME/timeseries/",
+              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/data_run/$ENV_TIME/data_archive/timeseries/",
               "var_file_dset"	: "vdam",
               "var_file_format"	: "ascii_time_series",
               "var_file_limits"	: [0, null],
@@ -492,7 +492,7 @@
             },
             "DamL"			  : {
               "var_file_name"   : "hmc.ldam.txt",
-              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/outcome/$ENV_TIME/timeseries/",
+              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/data_run/$ENV_TIME/data_archive/timeseries/",
               "var_file_dset"	: "ldam",
               "var_file_format"	: "ascii_time_series",
               "var_file_limits"	: [0, null],
@@ -500,7 +500,7 @@
             },
             "VarAnalysis"	  : {
               "var_file_name"   : "hmc.var-analysis.txt",
-              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/outcome/$ENV_TIME/timeseries/",
+              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/data_run/$ENV_TIME/data_archive/timeseries/",
               "var_file_dset"	: "var-analysis",
               "var_file_format"	: "ascii_time_series",
               "var_file_limits"	: [null, null],
@@ -528,7 +528,7 @@
           "var_list"        : {
             "ALL"			  : {
               "var_file_name"   : "hmc.state-grid.{dset_datetime_state}.nc.gz",
-              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/outcome/$ENV_TIME/state/",
+              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/data_run/$ENV_TIME/data_archive/state/",
               "var_file_dset"	: "ALL",
               "var_file_format"	: "netcdf",
               "var_file_limits"	: [null, null],
@@ -553,7 +553,7 @@
           "var_list"        : {
             "ALL"			  : {
               "var_file_name"   : "hmc.state-point.{dset_datetime_state}.txt",
-              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/outcome/$ENV_TIME/state/",
+              "var_file_folder" : "$ENV_HOME/fp_labs_datasets/data_run/$ENV_TIME/data_archive/state/",
               "var_file_dset"	: "ALL",
               "var_file_format"	: "ascii_point",
               "var_file_limits"	: [null, null],

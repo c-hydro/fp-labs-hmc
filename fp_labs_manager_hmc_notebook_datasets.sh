@@ -7,7 +7,7 @@ script_version="1.0.0"
 script_date='2021/01/12'
 
 # Get information of model execution
-time_run="2021-01-22 06:22"
+time_run="2021-01-28 12:22"
 time_period=0 # run hour(s)
 
 # Server remote settings (user and password are stored in .netrc file)

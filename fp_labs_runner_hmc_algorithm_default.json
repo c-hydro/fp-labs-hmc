@@ -69,7 +69,7 @@
       "run_mp": false,
       "run_cpu": 1,
       "run_domain": "marche",
-      "run_name": "jupyter_ws",
+      "run_name": "$ENV_RUN_NAME",
       "run_mode": {
         "ens_active": false,
         "ens_variable": {
@@ -105,7 +105,7 @@
   "Time_Info": {
     "time_run": null,
     "time_forecast_period": 0,
-    "time_observed_period": 24,
+    "time_observed_period": 12,
     "time_check_period": 2,
     "time_restart_period": 24,
     "time_forecast_frequency": "H",
