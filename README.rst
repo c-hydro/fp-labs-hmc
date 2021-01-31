@@ -110,7 +110,7 @@ the paths of the scripts according with their choice.
 
 The standard configuration will be as shown.
 
-..
+::
 
     .
     ├── .bash_logout
@@ -398,7 +398,7 @@ In the initializer class sets the run and the datasets locations, the run featur
 the information of the run will save in the folder: $HOME/fp_run_hmc/
 Particularly, the structure of the model folders will be as follows. 
 
-..
+::
 
     .
     └── jupyter_ws
@@ -420,7 +420,7 @@ The running part manages the execution of the model and gives some information o
 (if they happen) and states. After the running part, the structure of the folders will be organized
 as shows.
 
-..
+::
     .
     └── jupyter_ws
         ├── **ancillary**
@@ -452,7 +452,7 @@ as shows.
 In the finalization part, the results are organized and merged with the observations (if they are available). In the
 actual configuration of the notebook the results will be stored in the **fp_labs_datasets** folder. 
 
-..
+::
 
     .
     ├── data_dynamic
