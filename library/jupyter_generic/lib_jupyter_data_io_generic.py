@@ -48,7 +48,7 @@ def fill_file_template(file_obj, template_default=None, template_filled=None):
             file_filled_obj = {}
             for file_path_key, file_path_raw in file_obj.items():
                 file_path_def = fill_tags2string(file_path_raw, template_default, template_filled)
-                file_path_collections_filled[file_path_key] = file_path_def
+                file_filled_obj[file_path_key] = file_path_def
         elif isinstance(file_obj, str):
             file_filled_obj = fill_tags2string(file_obj, template_default, template_filled)
         else:
