@@ -249,8 +249,12 @@ If, all the steps ended correctly, the script will run the jupyter-lab and the i
     :width: 500px
     :align: center
 
+At this point, the users will able to run the Jupyter Notebooks or, alternatively, to create a new notebook for
+analyzing the Continuum results.
+
 FP-Labs: Analyzer HMC Timeseries
 --------------------------------
+
 The fp-labs of Continuum time-series is composed by the following script(s) and configuration file(s):
     - Jupyter Notebook main: **fp_labs_analyzer_hmc_timeseries.ipynb**
     - Jupyter Notebook configuration file: **fp_labs_analyzer_hmc_timeseries.json**
