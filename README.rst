@@ -249,7 +249,6 @@ If, all the steps ended correctly, the script will run the jupyter-lab and the i
     :width: 500px
     :align: center
 
-
 FP-Labs: Analyzer HMC Timeseries
 --------------------------------
 The fp-labs of Continuum time-series is composed by the following script(s) and configuration file(s):
