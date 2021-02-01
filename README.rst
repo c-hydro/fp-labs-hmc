@@ -254,18 +254,17 @@ analyzing the Continuum results.
 
 FP-Labs: Analyzer HMC Timeseries
 --------------------------------
-
 The fp-labs of Continuum time-series is composed by the following script(s) and configuration file(s):
-    - Jupyter Notebook main: **fp_labs_analyzer_hmc_timeseries.ipynb**
-    - Jupyter Notebook configuration file: **fp_labs_analyzer_hmc_timeseries.json**
+- Jupyter Notebook main: **fp_labs_analyzer_hmc_timeseries.ipynb**
+- Jupyter Notebook configuration file: **fp_labs_analyzer_hmc_timeseries.json**
 
 .. image:: ./img/fp_labs_analyzer_hmc_ts_01.png
     :width: 500px
     :align: center
 
 To run properly the notebook, the users have to update in the configuration file:
-    a) the **"time_run"** field according with the date of the case-study previously organized;
-    b) the **"domain_name"**, **"section_name"** and **"basin_name"** fields according with the shapefile of the sections.
+a) the **"time_run"** field according with the date of the case-study previously organized;
+b) the **"domain_name"**, **"section_name"** and **"basin_name"** fields according with the shapefile of the sections.
 
 For example:
    
