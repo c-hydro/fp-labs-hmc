@@ -262,7 +262,7 @@ If, all the steps ended correctly, the script will run the jupyter-lab and the i
 
 FP-Labs: Analyzer HMC Timeseries
 --------------------------------
-  
+
 The fp-labs of Continuum time-series is composed by the following script(s) and configuration file(s):
     - Jupyter Notebook main: **fp_labs_analyzer_hmc_timeseries.ipynb**
     - Jupyter Notebook configuration file: **fp_labs_analyzer_hmc_timeseries.json**
@@ -303,7 +303,7 @@ and controlling the results related to the forcing and outcome time-series infor
 
 FP-Labs: Analyzer HMC Maps
 --------------------------
-  
+
 The fp-labs of Continuum maps is composed by the following script(s) and configuration file(s):
     - Jupyter Notebook main: fp_labs_analyzer_hmc_maps.ipynb
     - Jupyter Notebook configuration file: fp_labs_analyzer_hmc_maps.json
@@ -354,7 +354,7 @@ and controlling the results related to the forcing and outcome gridded informati
 
 FP-Labs: Runner HMC Execution and Viewer
 ----------------------------------------
-  
+
 The fp-labs of Continuum execution is composed by the following script(s) and configuration file(s):
     - Jupyter Notebook Runner Execution: fp_labs_runner_hmc_realtime_execution.ipynb
     - Jupyter Notebook Runner Viewer: fp_labs_runner_hmc_realtime_viewer.ipynb
