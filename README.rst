@@ -1,6 +1,5 @@
 Flood PROOFS Labs
 =================
-
 Welcome to the **FloodPROOFS Modelling** GitHub repository. This is a Modelling System supported by the Italian 
 Civil Department (DPC) and is used for preventing and reducing hydrogeological risk.
 
@@ -9,7 +8,6 @@ Background
 
 Flood-PROOFS 
 ------------
-
 **Flood-PROOFS** (Flood PRObabilistic Operative Forecasting System) is a system designed by CIMA Research Foundation 
 to support decision makers during the operational phases of flood forecasting and monitoring. The goal is to protect 
 the population and infrastructure from damage caused by intense precipitation events.
@@ -25,7 +23,6 @@ to secure facilities in the event of flooding.
 
 Jupyter Notebook and Labs
 -------------------------
-
 JupyterLab is a web-based interactive development environment for Jupyter_ notebooks, code, and data. JupyterLab is flexible: 
 configure and arrange the user interface to support a wide range of workflows in data science, scientific computing, and machine 
 learning. JupyterLab is extensible and modular: write plugins that add new components and integrate with existing ones.
@@ -44,7 +41,6 @@ The Jupyter notebooks of Flood-PROOFS modelling system, are developt to aim the 
 
 Prerequisites
 *************
-
 In order to use the Flood-PROOFS labs, users are strongly raccomanted to control if the following characteristics, libraries and packages are available and correctly installed on their machine.
 
 Usually, Flood-PROOFS libraries are installed on **Linux Debian/Ubuntu 64bit** environment and all libraries, packages and applications must be compilled and/or installed in according with this operative system.
@@ -62,7 +58,6 @@ modelling system repository hosted by GitHub [1_].
 
 Python3 libraries
 -----------------
-
 The python3 standard library is not sufficient to correctly install all Flood-PROOFS labs; for this reason some extra libraries are needed to guarantee all functionalities. 
 To install all python3 libraries a bash script named **setup_fp_env_python_hmc.sh** is provided [6_]; basically, the script calls a **miniconda** [7_] installation that allow to get all needed libraries and install them into “$HOME/fp_libs_python/” folder. During the installation, a virtual environment named “fp_virtualenv_python3_hmc” are created too.
 Once all libraries are correctly installed and configurated, to activate "fp_virtualenv_python3_hmc” by command-line is necessary to execute the following:
@@ -85,7 +80,6 @@ Activating the virtual enviroment permits to use a correct configuration andall 
 
 Fortran libraries
 -----------------
-
 Hydrological model Continuum needs netcdf4 library to read input provided by other preprocessing tools and to write output for external applications (such as Panoply, cdo, ncview ...).
 To set and compile netcdf4 library a bash script named **setup_fp_env_system.sh** is provided. 
 Script downloads **zlib** [8_], **hdf5** [9_] and **netcdf4** [10_] libraries from their repositories; after downloading source compressed archives, script creates a folder in “$HOME/fp_libs_system/” where all libraries will be compilled and installed. During the installation, a environment file named “fp_env_system” is created for saving LD_LIBRARY_PATH (for native code libraries) and PATH (for executables) references of installed libraries.
@@ -103,7 +97,6 @@ and set the options as follows:
 
 Jupyter Notebooks for Continuum model
 *************************************
-
 The complete environment of the jupyter notebook of Continuum model will be saved in the $HOME
 directory of the machine; obviously, the users can modify this option but they have to update
 the paths of the scripts according with their choice.
@@ -139,7 +132,6 @@ The users have to set them according with their account.
 
 Download the jupyter-lab sources 
 --------------------------------
-
 The users, in the $HOME machine folder, on the command-line have to run the following:
 
 .. code-block:: bash
@@ -183,7 +175,6 @@ The structure of the "/$HOME/fp_labs_hmc/" is reported:
 
 Organize the jupyter-lab datasets
 ---------------------------------
-
 To organize the labs, the users have to organize/copy all the datasets in the right place of their machines.
 Particularly, the script "fp_labs_manager_hmc_notebook_datasets.sh" to perform this task is provided;
 the users have to edit the "time_run" information according with the case study that they should analyze.
@@ -232,7 +223,6 @@ The script will create the folders structure related to the "time_run" informati
 
 Run the jupyter-lab environment
 -------------------------------
-
 The second step is related to the run of the jupyter-lab of hmc notebooks;
 the users have to run the script "fp_labs_manager_hmc_notebook_envs.sh" in the folder "/$HOME/fp_labs_hmc/":
 
@@ -262,7 +252,6 @@ If, all the steps ended correctly, the script will run the jupyter-lab and the i
 
 FP-Labs: Analyzer HMC Timeseries
 --------------------------------
-
 The fp-labs of Continuum time-series is composed by the following script(s) and configuration file(s):
     - Jupyter Notebook main: **fp_labs_analyzer_hmc_timeseries.ipynb**
     - Jupyter Notebook configuration file: **fp_labs_analyzer_hmc_timeseries.json**
@@ -303,7 +292,6 @@ and controlling the results related to the forcing and outcome time-series infor
 
 FP-Labs: Analyzer HMC Maps
 --------------------------
-
 The fp-labs of Continuum maps is composed by the following script(s) and configuration file(s):
     - Jupyter Notebook main: fp_labs_analyzer_hmc_maps.ipynb
     - Jupyter Notebook configuration file: fp_labs_analyzer_hmc_maps.json
@@ -354,7 +342,6 @@ and controlling the results related to the forcing and outcome gridded informati
 
 FP-Labs: Runner HMC Execution and Viewer
 ----------------------------------------
-
 The fp-labs of Continuum execution is composed by the following script(s) and configuration file(s):
     - Jupyter Notebook Runner Execution: fp_labs_runner_hmc_realtime_execution.ipynb
     - Jupyter Notebook Runner Viewer: fp_labs_runner_hmc_realtime_viewer.ipynb
