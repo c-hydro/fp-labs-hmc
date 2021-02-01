@@ -297,6 +297,7 @@ and controlling the results related to the forcing and outcome time-series infor
 FP-Labs: Analyzer HMC Maps
 --------------------------
 The fp-labs of Continuum maps is composed by the following script(s) and configuration file(s):
+
     - Jupyter Notebook main: fp_labs_analyzer_hmc_maps.ipynb
     - Jupyter Notebook configuration file: fp_labs_analyzer_hmc_maps.json
 
@@ -347,6 +348,7 @@ and controlling the results related to the forcing and outcome gridded informati
 FP-Labs: Runner HMC Execution and Viewer
 ----------------------------------------
 The fp-labs of Continuum execution is composed by the following script(s) and configuration file(s):
+
     - Jupyter Notebook Runner Execution: fp_labs_runner_hmc_realtime_execution.ipynb
     - Jupyter Notebook Runner Viewer: fp_labs_runner_hmc_realtime_viewer.ipynb
     - Jupyter Notebook configuration file: fp_labs_runner_hmc_realtime_execution.json
@@ -380,6 +382,7 @@ the notebook; the list of the dates will be in according with the datasets previ
     :align: center
 
 The notebook is organized in four main section:
+
     - initialize the instance of the model;
     - build the instance of the model;
     - run the instance of the model;
