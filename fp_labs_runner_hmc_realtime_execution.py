@@ -97,6 +97,9 @@ def main(script_time,
 
     info_time_run = pd.Timestamp(time_run_available[0])
     info_time_env = info_time_run.strftime("%Y%m%d_%H")
+
+    print(script_settings_defined['settings_algorithm'])
+    print(script_settings_defined['settings_datasets'])
     # ------------------------------------------------------------------------------------
 
     # -------------------------------------------------------------------------------------
