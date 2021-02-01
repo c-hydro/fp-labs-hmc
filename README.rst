@@ -407,14 +407,14 @@ Particularly, the structure of the model folders will be as follows.
             ├── hmc.state-grid.202101262300.nc.gz
             └── hmc.state-point.202101262300.txt
 
-
-during the building part, the static datasets, the dynamic restart datasets and the dynamic forcing 
+During the building part, the static datasets, the dynamic restart datasets and the dynamic forcing 
 datasets are checked and organized to fit the run structure and the model settings. 
 The running part manages the execution of the model and gives some information of the run failures 
 (if they happen) and states. After the running part, the structure of the folders will be organized
 as shows.
 
 ::
+
     .
     └── jupyter_ws
         ├── **ancillary**
@@ -441,7 +441,6 @@ as shows.
         └── **state**
             ├── gridded
             └── point
-
 
 In the finalization part, the results are organized and merged with the observations (if they are available). In the
 actual configuration of the notebook the results will be stored in the **fp_labs_datasets** folder. 
@@ -474,6 +473,7 @@ will execute to activate the realtime analysis of the discharges time-series for
     :align: center
 
 To set-up this configuration, the users have to follow this steps:
+
     1) run the execution jupyter notebook until the dump section:
 
         .. code-block:: python
